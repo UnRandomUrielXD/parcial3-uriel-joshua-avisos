@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 
 [Route("api/mi-proyecto")]
 public class MiProyectoController : ControllerBase {
@@ -11,4 +12,16 @@ public class MiProyectoController : ControllerBase {
         };
         return Ok(integrantes);
     }
+
+    [HttpGet("presentacion")]
+    public ActionResult Presentacion() {
+       MongoClient client = new MongoClient(CadenaConexion.MONGO_DB);
+       var db = client.GetDatabase("Escuela_Joshua_Uriel");
+       var collection = db.GetCollection<Equipo>("Equipo");
+
+       var lista = collection.Find(FilterDefinition<Equipo>.Empty).ToList();
+
+       return Ok(lista);
+    }
+
 }
