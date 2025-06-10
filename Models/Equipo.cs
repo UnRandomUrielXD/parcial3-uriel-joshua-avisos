@@ -12,11 +12,11 @@ public class Equipo
     [BsonElement("carrera")]
     public string Carrera { get; set; } = string.Empty;
 
-    [BsonElement("grupo")]
-    public string Grupo { get; set; } = string.Empty;
-
     [BsonElement("datos_semestre")]
     public string DatosSemestre { get; set; } = string.Empty;
+
+    [BsonElement("grupo")]
+    public string Grupo { get; set; } = string.Empty;
 
     [BsonElement("proyecto")]
     public string ProyectoNombre { get; set; } = string.Empty;
